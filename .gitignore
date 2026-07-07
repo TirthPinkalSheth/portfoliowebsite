@@ -1,0 +1,10 @@
+# Dependencies (local dev server only — not needed to deploy the static site)
+node_modules/
+
+# Local tooling / editor config
+.claude/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.log
