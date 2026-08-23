@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Token Optimizer — Tirth Pinkal Sheth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0e0c; --bg-raised:#101613; --bg-card:#131a17; --border:#1f2b26; --border-hover:#2c3d35;
+  --green:#3ecf8e; --green-dim:#245c43; --amber:#e8a33d;
+  --text:#edefec; --text-dim:#93a19a; --text-faint:#5c6b64;
+  --font-display:'Space Grotesk', sans-serif; --font-body:'Inter', sans-serif; --font-mono:'JetBrains Mono', monospace;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+body{background:var(--bg); color:var(--text); font-family:var(--font-body); line-height:1.65;}
+body::before{
+  content:''; position:fixed; inset:0;
+  background-image:linear-gradient(rgba(62,207,142,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(62,207,142,0.025) 1px, transparent 1px);
+  background-size:48px 48px; pointer-events:none; z-index:0;
+}
+a{color:inherit; text-decoration:none;}
+h1,h2,h3{font-family:var(--font-display); letter-spacing:-0.01em;}
+.wrap{max-width:860px; margin:0 auto; padding:0 32px; position:relative; z-index:1;}
+::selection{background:var(--green); color:#06110c;}
+
+nav{position:sticky; top:0; z-index:50; background:rgba(10,14,12,0.85); backdrop-filter:blur(10px); border-bottom:1px solid var(--border);}
+.nav-inner{max-width:860px; margin:0 auto; padding:0 32px; height:60px; display:flex; align-items:center; justify-content:space-between;}
+.back-link{font-family:var(--font-mono); font-size:13px; color:var(--text-dim); display:flex; align-items:center; gap:8px; transition:color .2s;}
+.back-link:hover{color:var(--green);}
+.logo{font-family:var(--font-mono); font-weight:600; font-size:14px; color:var(--text-dim);}
+
+.hero{padding:64px 0 40px;}
+.eyebrow{font-family:var(--font-mono); font-size:12.5px; color:var(--green); margin-bottom:14px;}
+.eyebrow::before{content:'$ '; color:var(--text-faint);}
+.proj-h1{font-size:clamp(30px,5vw,46px); font-weight:700; margin-bottom:14px;}
+.proj-meta-row{display:flex; gap:16px; flex-wrap:wrap; font-family:var(--font-mono); font-size:12.5px; color:var(--text-dim); margin-bottom:8px;}
+.proj-meta-row span{border:1px solid var(--border); padding:5px 12px; border-radius:20px;}
+.tagline{color:var(--text-dim); font-size:16px; max-width:640px; margin-top:18px;}
+
+.media-block{
+  margin:36px 0; border-radius:12px; overflow:hidden; border:1px solid var(--border);
+  aspect-ratio:16/9; background:linear-gradient(160deg,#101c17,#0a1310);
+}
+.media-block iframe, .media-block img{width:100%; height:100%; border:none; object-fit:cover;}
+.media-slot{
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
+  width:100%; height:100%; color:var(--text-faint); font-family:var(--font-mono); font-size:12.5px;
+  border:1px dashed var(--border-hover); text-align:center; padding:20px;
+}
+.media-slot svg{opacity:.5;}
+
+.section{padding:32px 0; border-top:1px solid var(--border);}
+.section:first-of-type{border-top:none;}
+.section h2{font-size:20px; font-weight:600; margin-bottom:16px;}
+.section p{color:var(--text-dim); font-size:15px; margin-bottom:14px;}
+.section p:last-child{margin-bottom:0;}
+
+.decision-list{list-style:none;}
+.decision-list li{
+  padding:14px 0 14px 24px; border-bottom:1px solid var(--border); position:relative; color:var(--text-dim); font-size:14.5px;
+}
+.decision-list li:last-child{border-bottom:none;}
+.decision-list li::before{content:'→'; color:var(--green); position:absolute; left:0;}
+.decision-list b{color:var(--text); font-weight:600;}
+
+.tech-pills{display:flex; flex-wrap:wrap; gap:8px;}
+.pill{font-family:var(--font-mono); font-size:12px; padding:6px 13px; border:1px solid var(--border); border-radius:20px; color:var(--text-dim);}
+
+.gallery{display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:8px;}
+@media (max-width:600px){.gallery{grid-template-columns:1fr;}}
+.gallery .media-slot-box{aspect-ratio:4/3; border-radius:10px; overflow:hidden; border:1px solid var(--border); background:var(--bg-card);}
+
+.link-row{display:flex; flex-wrap:wrap; gap:12px; margin-top:8px;}
+.link-btn{
+  font-family:var(--font-mono); font-size:13px; padding:11px 20px; border:1px solid var(--border-hover);
+  border-radius:6px; color:var(--text); display:inline-flex; align-items:center; gap:8px; transition:all .2s ease;
+}
+.link-btn:hover{border-color:var(--green); color:var(--green); transform:translateY(-2px);}
+.link-btn.primary{background:var(--green); border-color:var(--green); color:#06120c;}
+.link-btn.primary:hover{transform:translateY(-2px); box-shadow:0 8px 20px rgba(62,207,142,0.25); color:#06120c;}
+
+.outcomes-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+@media (max-width:600px){.outcomes-grid{grid-template-columns:1fr;}}
+.outcome-box{border:1px solid var(--border); border-radius:10px; padding:18px; background:var(--bg-card); text-align:center;}
+.outcome-box .num{font-family:var(--font-display); font-size:22px; font-weight:700; color:var(--green);}
+.outcome-box .lbl{font-size:12px; color:var(--text-dim); margin-top:6px;}
+
+footer{border-top:1px solid var(--border); padding:44px 0; text-align:center; margin-top:40px;}
+footer p{font-family:var(--font-mono); font-size:12px; color:var(--text-faint);}
+footer a{color:var(--green);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="back-link" href="../index.html#projects">← Back to Portfolio</a>
+    <div class="logo">TPS</div>
+  </div>
+</nav>
+
+<div class="hero wrap">
+  <div class="eyebrow">cat token-optimizer.log</div>
+  <h1 class="proj-h1">Token Optimizer</h1>
+  <div class="proj-meta-row"><span>AMD Developer Hackathon: ACT 2</span><span>Jul 2026</span></div>
+  <p class="tagline">A hybrid routing agent that cuts LLM inference cost and latency by sending each query to the cheapest capable option: a local model, a deterministic solver, or the cloud.</p>
+</div>
+
+<div class="wrap">
+  <div class="media-block" style="aspect-ratio:auto; padding:32px 20px; background:linear-gradient(160deg,#101c17,#0a1310);">
+    <svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; font-family:'JetBrains Mono',monospace;">
+      <!-- Query -->
+      <rect x="270" y="8" width="160" height="46" rx="8" fill="#131a17" stroke="#2c3d35"/>
+      <text x="350" y="36" text-anchor="middle" fill="#edefec" font-size="14" font-weight="600">Incoming Query</text>
+
+      <!-- arrow down to router -->
+      <line x1="350" y1="54" x2="350" y2="86" stroke="#3ecf8e" stroke-width="1.5"/>
+      <polygon points="345,80 355,80 350,90" fill="#3ecf8e"/>
+
+      <!-- Router -->
+      <rect x="255" y="92" width="190" height="52" rx="8" fill="#0d1712" stroke="#3ecf8e" stroke-width="1.5"/>
+      <text x="350" y="114" text-anchor="middle" fill="#3ecf8e" font-size="13" font-weight="600">Routing Agent</text>
+      <text x="350" y="131" text-anchor="middle" fill="#93a19a" font-size="10.5">classifies query complexity</text>
+
+      <!-- three branch lines -->
+      <line x1="350" y1="144" x2="120" y2="185" stroke="#5c6b64" stroke-width="1.3"/>
+      <line x1="350" y1="144" x2="350" y2="185" stroke="#5c6b64" stroke-width="1.3"/>
+      <line x1="350" y1="144" x2="580" y2="185" stroke="#5c6b64" stroke-width="1.3"/>
+
+      <!-- Tier 1: Deterministic -->
+      <rect x="30" y="188" width="180" height="70" rx="8" fill="#131a17" stroke="#1f2b26"/>
+      <text x="120" y="212" text-anchor="middle" fill="#edefec" font-size="12.5" font-weight="600">Deterministic Solver</text>
+      <text x="120" y="230" text-anchor="middle" fill="#93a19a" font-size="10">Python, rule-based</text>
+      <text x="120" y="246" text-anchor="middle" fill="#3ecf8e" font-size="10">no model call · free</text>
+
+      <!-- Tier 2: Local Ollama -->
+      <rect x="260" y="188" width="180" height="70" rx="8" fill="#131a17" stroke="#1f2b26"/>
+      <text x="350" y="212" text-anchor="middle" fill="#edefec" font-size="12.5" font-weight="600">Ollama · qwen2.5:3b</text>
+      <text x="350" y="230" text-anchor="middle" fill="#93a19a" font-size="10">local inference</text>
+      <text x="350" y="246" text-anchor="middle" fill="#e8a33d" font-size="10">on-device · low cost</text>
+
+      <!-- Tier 3: Fireworks -->
+      <rect x="490" y="188" width="180" height="70" rx="8" fill="#131a17" stroke="#1f2b26"/>
+      <text x="580" y="212" text-anchor="middle" fill="#edefec" font-size="12.5" font-weight="600">Fireworks API</text>
+      <text x="580" y="230" text-anchor="middle" fill="#93a19a" font-size="10">cloud escalation</text>
+      <text x="580" y="246" text-anchor="middle" fill="#e8a33d" font-size="10">frontier-level only</text>
+
+      <!-- converge lines to response -->
+      <line x1="120" y1="258" x2="350" y2="300" stroke="#5c6b64" stroke-width="1.3"/>
+      <line x1="350" y1="258" x2="350" y2="300" stroke="#5c6b64" stroke-width="1.3"/>
+      <line x1="580" y1="258" x2="350" y2="300" stroke="#5c6b64" stroke-width="1.3"/>
+
+      <!-- Response -->
+      <rect x="270" y="304" width="160" height="46" rx="8" fill="#131a17" stroke="#2c3d35"/>
+      <text x="350" y="332" text-anchor="middle" fill="#edefec" font-size="14" font-weight="600">Response</text>
+    </svg>
+  </div>
+
+  <div class="section">
+    <h2>Overview</h2>
+    <p>Built for the AMD Developer Hackathon: ACT 2, Token Optimizer addresses a simple problem: most LLM queries don't need a frontier model, but routing everything to one anyway wastes cost and latency. The agent inspects each incoming query and routes it to the cheapest option that can actually handle it.</p>
+    <p>Simple, deterministic tasks are solved directly in Python with no model call at all. Moderate queries go to a local Ollama model (qwen2.5:3b) running on-device with zero API cost. Only queries that genuinely need frontier-level reasoning escalate to the Fireworks API, keeping average cost and latency down without sacrificing capability on the queries that need it.</p>
+  </div>
+
+  <div class="section">
+    <h2>Outcomes</h2>
+    <div class="outcomes-grid">
+      <div class="outcome-box"><div class="num">3-Way</div><div class="lbl">Routing: local, deterministic, cloud</div></div>
+      <div class="outcome-box"><div class="num">Dockerized</div><div class="lbl">Containerized deployment</div></div>
+      <div class="outcome-box"><div class="num">CI/CD</div><div class="lbl">GitHub Actions to GHCR</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Engineering Decisions</h2>
+    <ul class="decision-list">
+      <li><b>Local-first with qwen2.5:3b via Ollama.</b> Runs a small model on-device for the bulk of moderate-complexity queries, avoiding API cost and network latency for anything that doesn't need it.</li>
+      <li><b>Deterministic solvers before any model call.</b> Queries with a clear rule-based answer skip inference entirely, which is both faster and free.</li>
+      <li><b>Fireworks API as the escalation tier.</b> Reserved for queries the local model and solvers can't confidently handle, so inference cost scales with actual query difficulty rather than a flat per-query rate.</li>
+      <li><b>Containerized and shipped through CI.</b> Docker plus a GitHub Actions pipeline to GHCR made the routing agent reproducible and easy to deploy for judging.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Tech Stack</h2>
+    <div class="tech-pills">
+      <span class="pill">Python</span>
+      <span class="pill">Ollama</span>
+      <span class="pill">Fireworks API</span>
+      <span class="pill">Docker</span>
+      <span class="pill">GitHub Actions</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Links</h2>
+    <div class="link-row">
+      <a class="link-btn primary" href="https://github.com/TirthPinkalSheth/TokenoptimizerAMD" target="_blank">View Repo ↗</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Tirth Pinkal Sheth &nbsp;·&nbsp; <a href="../index.html">Back to Portfolio</a> &nbsp;·&nbsp; <a href="mailto:tirthsheth100304@gmail.com">Get in Touch</a></p>
+</footer>
+</body>
+</html>
