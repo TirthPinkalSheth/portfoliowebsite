@@ -424,7 +424,7 @@ footer .fsocials a:hover{color:var(--green); border-color:var(--green);}
   <div class="eyebrow">whoami</div>
   <h1 class="hero-name">Tirth Pinkal Sheth<span class="cursor"></span></h1>
   <div class="hero-role">Software Engineer&nbsp;|&nbsp;AI/ML Builder</div>
-  <p class="hero-intro">I ship production-grade AI systems, not just prototypes, including a live MCP trading bot that autonomously places real orders on the NSE and a RAG pipeline serving semantic search over 1,000+ movies. I graduated from VIT Bhopal with a 9.06 GPA in Computer Science (Gaming Technology specialization) and currently work at Electronic Arts, where I identify, scope, and build automation and AI solutions across distributed engineering teams. My focus is on practical deployment over theory: Python and TypeScript systems that run in production, get used by real teams, and solve real problems. I'm looking for entry-level SDE and AI/ML roles where I can keep building things that ship. Let's talk about what we could build together.</p>
+  <p class="hero-intro">I ship production-grade AI systems, not just prototypes: an MCP server that's placed 100+ live buy/sell orders on the NSE with a 100% success rate, a RAG pipeline answering semantic queries over 1,000+ movies in ~8-10 seconds end-to-end, and a multi-agent compliance auditor built on Google ADK. I graduated from VIT Bhopal with a 9.06 GPA in Computer Science (Gaming Technology specialization) and currently work at Electronic Arts on software engineering and internal tooling, building automation and AI solutions across distributed engineering teams. My focus is on practical deployment over theory: Python and TypeScript systems that run in production, get used by real teams, and solve real problems. I'm looking for entry-level Software Engineer and AI/ML roles where I can keep building things that ship. Let's talk about what we could build together.</p>
   <div class="hero-ctas">
     <a href="#about" class="cta primary">Learn More About Me →</a>
     <a href="#contact" class="cta ghost">Get In Touch</a>
@@ -451,8 +451,8 @@ footer .fsocials a:hover{color:var(--green); border-color:var(--green);}
       <div class="avatar">TPS</div>
     </div>
     <div class="about-text">
-      <p class="reveal">I'm a software engineer who ships production AI systems, including a live MCP trading bot placing real orders on the NSE, and ReelMind, a RAG-powered movie search engine serving 1,000+ titles in production. My stack spans Python, TypeScript, LLM APIs, RAG pipelines, and MCP servers.</p>
-      <p class="reveal">At Electronic Arts, I work as an Associate Quality Designer, where I identify, scope, and build automation and AI solutions across Hyderabad and UK engineering teams, alongside a wide range of other engineering work, cutting manual effort by 50% and earning 2nd prize company-wide at EA's internal Hackathon.</p>
+      <p class="reveal">I'm a software engineer who ships production AI systems: an MCP server that's executed 100+ live orders on the NSE, a RAG-powered movie search engine serving 1,000+ titles, a multi-agent FAQ compliance auditor, and a cost-aware LLM routing agent. My stack spans Python, TypeScript, REST APIs, RAG pipelines, MCP servers, and AI agent frameworks like Google ADK.</p>
+      <p class="reveal">At Electronic Arts, I work on software engineering and internal tooling, building automation and AI solutions across Hyderabad and UK engineering teams: Playwright-based test automation and an internal LLM assistant that cut manual QA effort by 50%, two Jira dashboard tools, and Slack workflow automations adopted team-wide, plus coordinating Golf Clash's first Hyderabad-owned feature across a 27-person team. I won 2nd prize company-wide at EA's internal Hackathon for an AI-powered skill-matching platform.</p>
       <p class="reveal">I graduated from VIT Bhopal with a B.Tech in Computer Science (Gaming Technology specialization) and a 9.06 GPA. What sets me apart: I don't just study these systems, I ship them with real stakes and iterate until they work in production.</p>
 
       <div class="mv-grid">
@@ -486,12 +486,12 @@ footer .fsocials a:hover{color:var(--green); border-color:var(--green);}
       <div><div class="proj-num">01</div><div class="proj-title">ReelMind</div><div class="proj-type">Intelligent Movie Search Engine · Personal Project · Jun 2026</div></div>
     </div>
     <div class="proj-body">
-      <p class="proj-desc">An end-to-end RAG pipeline over 1,000+ IMDb movies that semantically retrieves and answers queries using Sentence Transformers embeddings, a Pinecone vector database, and Llama 3.3 70B via Groq API. Deployed live on Streamlit Cloud with persistent vector storage.</p>
+      <p class="proj-desc">An end-to-end RAG pipeline over 1,000+ IMDb movies that semantically retrieves and answers queries in roughly 8-10 seconds end-to-end, using Sentence Transformers embeddings, a Pinecone vector database, and Llama 3.3 70B via Groq API. Deployed live on Streamlit Cloud with persistent vector storage.</p>
       <div class="proj-links">
         <a class="proj-link-btn primary" href="projects/reelmind.html">▶ View Project Details ↗</a>
       </div>
       <ul class="proj-outcomes">
-        <li>Migrated from ChromaDB to Pinecone after identifying filesystem limitations on Streamlit Cloud</li>
+        <li>Migrated from ChromaDB to Pinecone after diagnosing filesystem limitations on Streamlit Cloud</li>
         <li>Resolved persistent cold-start failures in production</li>
         <li>Live, publicly accessible deployment</li>
       </ul>
@@ -511,8 +511,8 @@ footer .fsocials a:hover{color:var(--green); border-color:var(--green);}
         <a class="proj-link-btn primary" href="projects/trading-bot.html">▶ View Project Details ↗</a>
       </div>
       <ul class="proj-outcomes">
-        <li>Validated with real money on the live NSE market</li>
-        <li>Bot autonomously executed buy and sell orders from natural language prompts</li>
+        <li>Executed 100+ live buy/sell orders with real capital on the NSE</li>
+        <li>100% order success rate when compliant with Zerodha's order guidelines and account balance</li>
         <li>Full OAuth session-based authentication flow implemented</li>
       </ul>
       <div class="tech-pills">
@@ -523,7 +523,47 @@ footer .fsocials a:hover{color:var(--green); border-color:var(--green);}
 
   <div class="proj-card reveal-left">
     <div class="proj-side">
-      <div><div class="proj-num">03</div><div class="proj-title">House Escape</div><div class="proj-type">Game Jam Project · Jul 2024</div></div>
+      <div><div class="proj-num">03</div><div class="proj-title">Undercover Auditor</div><div class="proj-type">Multi-Agent FAQ Compliance Checker · Kaggle x Google AI Agents Intensive Capstone · Jul 2026</div></div>
+    </div>
+    <div class="proj-body">
+      <p class="proj-desc">A three-agent pipeline built with Google ADK and FastMCP that audits public-facing FAQ answers against internal policy documents, tested across 10+ policy documents. MCP runs over a stdio subprocess for least-privilege tool isolation between agents.</p>
+      <div class="proj-links">
+        <a class="proj-link-btn primary" href="projects/undercover-auditor.html">▶ View Project Details ↗</a>
+      </div>
+      <ul class="proj-outcomes">
+        <li>Three-agent pipeline auditing FAQ answers against internal policy</li>
+        <li>Tested across 10+ policy documents</li>
+        <li>Chose keyword-scoring search over semantic retrieval to keep every flagged discrepancy fully auditable</li>
+      </ul>
+      <div class="tech-pills">
+        <span class="pill">Python</span><span class="pill">Google ADK</span><span class="pill">FastMCP</span><span class="pill">Streamlit</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="proj-card reveal-right">
+    <div class="proj-side">
+      <div><div class="proj-num">04</div><div class="proj-title">Token Optimizer</div><div class="proj-type">Token-Efficient Routing Agent · AMD Developer Hackathon: ACT 2 · Jul 2026</div></div>
+    </div>
+    <div class="proj-body">
+      <p class="proj-desc">A hybrid routing agent combining a local Ollama model (qwen2.5:3b), deterministic Python solvers, and Fireworks API escalation to reduce LLM inference cost and latency. Containerized with Docker and deployed via a GitHub Actions CI pipeline to GHCR.</p>
+      <div class="proj-links">
+        <a class="proj-link-btn primary" href="projects/token-optimizer.html">▶ View Project Details ↗</a>
+      </div>
+      <ul class="proj-outcomes">
+        <li>Routes queries between local model, deterministic solvers, and cloud escalation to cut cost and latency</li>
+        <li>Containerized with Docker and deployed via GitHub Actions CI to GHCR</li>
+        <li>Built for the AMD Developer Hackathon: ACT 2</li>
+      </ul>
+      <div class="tech-pills">
+        <span class="pill">Python</span><span class="pill">Ollama</span><span class="pill">Docker</span><span class="pill">GitHub Actions</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="proj-card reveal-left">
+    <div class="proj-side">
+      <div><div class="proj-num">05</div><div class="proj-title">House Escape</div><div class="proj-type">Game Jam Project · Jul 2024</div></div>
     </div>
     <div class="proj-body">
       <p class="proj-desc">A psychological thriller built in Unity and Blender 4.0, featuring custom lighting, sound, and puzzle systems designed to build tension.</p>
@@ -542,7 +582,7 @@ footer .fsocials a:hover{color:var(--green); border-color:var(--green);}
 
   <div class="proj-card reveal-right">
     <div class="proj-side">
-      <div><div class="proj-num">04</div><div class="proj-title">Virtual Reality Tour Guide</div><div class="proj-type">Team Project · 5+ members · Apr 2024</div></div>
+      <div><div class="proj-num">06</div><div class="proj-title">Virtual Reality Tour Guide</div><div class="proj-type">Team Project · 5+ members · Apr 2024</div></div>
     </div>
     <div class="proj-body">
       <p class="proj-desc">A VR tour of the Giza pyramids built with Unreal Engine 5.2.1, Blueprints, and Open XR.</p>
@@ -576,18 +616,20 @@ footer .fsocials a:hover{color:var(--green); border-color:var(--green);}
     <div class="skill-card">
       <div class="skill-cat"><div class="skill-icon">◆</div><h3>AI / ML</h3></div>
       <div class="skill-row"><span>Retrieval Augmented Generation</span></div>
-      <div class="skill-row"><span>LLM APIs: Groq, Anthropic Claude</span></div>
+      <div class="skill-row"><span>AI Agents (Google ADK)</span></div>
+      <div class="skill-row"><span>Model Context Protocol (MCP / FastMCP)</span></div>
+      <div class="skill-row"><span>LLM APIs: Groq, Anthropic, Fireworks</span></div>
       <div class="skill-row"><span>Pinecone / Vector DBs</span></div>
-      <div class="skill-row"><span>Model Context Protocol</span></div>
-      <div class="skill-row"><span>Prompt Engineering</span></div>
       <div class="skill-row"><span>Sentence Transformers</span></div>
+      <div class="skill-row"><span>Prompt Engineering</span></div>
     </div>
 
     <div class="skill-card">
-      <div class="skill-cat"><div class="skill-icon">⚙</div><h3>Engineering</h3></div>
-      <div class="skill-row"><span>REST APIs</span></div>
-      <div class="skill-row"><span>Git</span></div>
-      <div class="skill-row"><span>Streamlit</span></div>
+      <div class="skill-cat"><div class="skill-icon">⚙</div><h3>Backend &amp; Engineering</h3></div>
+      <div class="skill-row"><span>REST APIs · OAuth</span></div>
+      <div class="skill-row"><span>Git · CI/CD (GitHub Actions)</span></div>
+      <div class="skill-row"><span>Docker</span></div>
+      <div class="skill-row"><span>Testing (Playwright)</span></div>
       <div class="skill-row"><span>Agile / Scrum</span></div>
     </div>
 
@@ -615,22 +657,24 @@ footer .fsocials a:hover{color:var(--green); border-color:var(--green);}
     <div class="exp-side">
       <div>
         <div class="exp-badge">FULL-TIME</div>
-        <div class="exp-role">Associate Quality Designer</div>
-        <div class="exp-meta">Electronic Arts (EA)<br>Hyderabad, India<br>Aug 2025 – Present</div>
+        <div class="exp-role">Associate Quality Designer — Software Engineering &amp; Internal Tooling</div>
+        <div class="exp-meta">Electronic Arts (EA)<br>Hyderabad, India<br>Jul 2025 – Jul 2026</div>
       </div>
     </div>
     <div class="exp-body">
       <div class="exp-h">RESPONSIBILITIES</div>
       <ul class="exp-list">
-        <li>Identify, scope, and build automation and AI solutions (Reefchat/eaGPT, Playwright MCP) for engineering workflow integration, alongside a wide range of other engineering work</li>
-        <li>Develop internal Jira dashboard tools and automated Slack workflow systems</li>
+        <li>Architect and build automation and AI solutions for engineering workflow integration, alongside a wide range of other engineering work</li>
+        <li>Own 2 internal Jira dashboard tools and Slack workflow automations end-to-end, from development through rollout</li>
+        <li>Implement Playwright-based test automation and integrate an internal LLM assistant into team workflows</li>
         <li>Coordinate feature delivery across distributed Hyderabad and UK engineering teams within Agile sprints</li>
-        <li>Identify and resolve critical issues ahead of release</li>
       </ul>
       <div class="exp-h">ACHIEVEMENTS</div>
       <ul class="exp-list">
-        <li>Won 2nd prize company-wide at EA's internal Hackathon for an AI-powered skill-matching platform with Slack automation</li>
-        <li>Reduced manual effort by 50% through AI-generated process automation; led Golf Clash's first Hyderabad-owned feature, coordinating 27 people across time zones and resolving 28 critical issues pre-release</li>
+        <li>Won 2nd prize company-wide at EA's internal Hackathon for an AI-powered skill-matching platform with automated cross-org team discovery</li>
+        <li>Cut manual QA effort by 50% through Playwright automation and an integrated internal LLM assistant</li>
+        <li>Coordinated engineering delivery of Golf Clash's first Hyderabad-owned feature across a 27-person cross-functional team, identifying and resolving 28 critical issues pre-release</li>
+        <li>Tools adopted team-wide across Hyderabad and UK engineering teams</li>
       </ul>
     </div>
   </div>
@@ -653,7 +697,7 @@ footer .fsocials a:hover{color:var(--green); border-color:var(--green);}
       <div class="exp-h">ACHIEVEMENTS</div>
       <ul class="exp-list">
         <li>Coordinated shipping of 2 major features for Real Racing 3, EA's top-grossing mobile title</li>
-        <li>Authored reports for Star Wars: Galaxy of Heroes and Golf Clash that were adopted by transition engineering teams</li>
+        <li>Authored technical analysis reports for Star Wars: Galaxy of Heroes and Golf Clash; recommendations adopted by engineering teams</li>
       </ul>
     </div>
   </div>
@@ -686,16 +730,32 @@ footer .fsocials a:hover{color:var(--green); border-color:var(--green);}
       <div class="cert-icon-wrap">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3ecf8e" stroke-width="1.6"><path d="M12 2 3 7l9 5 9-5-9-5Z"/><path d="M3 12l9 5 9-5"/><path d="M3 17l9 5 9-5"/></svg>
       </div>
-      <div class="cert-name">Unity Certified User: Programmer</div>
-      <div class="cert-issuer">Unity Technologies</div>
+      <div class="cert-name">Oracle Certified Foundations Associate: Agentic AI</div>
+      <div class="cert-issuer">Oracle University · Aug 2026</div>
       <div class="cert-badge">VERIFIED</div>
     </div>
     <div class="cert-card" style="--r:1.6deg;">
       <div class="cert-icon-wrap">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#e8a33d" stroke-width="1.6"><path d="M12 3 2 9l10 6 10-6-10-6Z"/><path d="M2 9v6l10 6 10-6V9"/></svg>
       </div>
-      <div class="cert-name">Gamification</div>
-      <div class="cert-issuer">University of Pennsylvania · Coursera</div>
+      <div class="cert-name">Kaggle x Google AI Agents Intensive</div>
+      <div class="cert-issuer">Google · Jun 2026</div>
+      <div class="cert-badge">VERIFIED</div>
+    </div>
+    <div class="cert-card" style="--r:-0.9deg;">
+      <div class="cert-icon-wrap">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3ecf8e" stroke-width="1.6"><path d="M12 2 3 7l9 5 9-5-9-5Z"/><path d="M3 12l9 5 9-5"/><path d="M3 17l9 5 9-5"/></svg>
+      </div>
+      <div class="cert-name">Google Cloud Technical Series (OnBoard Edition)</div>
+      <div class="cert-issuer">Gemini AI labs · GCP, BigQuery, Firebase, ADK</div>
+      <div class="cert-badge">VERIFIED</div>
+    </div>
+    <div class="cert-card" style="--r:1.1deg;">
+      <div class="cert-icon-wrap">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#e8a33d" stroke-width="1.6"><path d="M12 3 2 9l10 6 10-6-10-6Z"/><path d="M2 9v6l10 6 10-6V9"/></svg>
+      </div>
+      <div class="cert-name">Unity Certified User: Programmer</div>
+      <div class="cert-issuer">Unity Technologies</div>
       <div class="cert-badge">VERIFIED</div>
     </div>
   </div>
@@ -767,7 +827,7 @@ footer .fsocials a:hover{color:var(--green); border-color:var(--green);}
       </a>
       <div class="info-row">
         <div class="info-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.6 8 12 8 12s8-6.4 8-12c0-4.4-3.6-8-8-8Zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/></svg></div>
-        <div class="info-text"><div class="label">LOCATION</div><div class="value">Hyderabad, India</div></div>
+        <div class="info-text"><div class="label">LOCATION</div><div class="value">Ghaziabad, India</div></div>
       </div>
       <a class="info-row" href="https://www.linkedin.com/in/tirth-pinkal-sheth/" target="_blank">
         <div class="info-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.25 2.36 4.25 5.43v6.31ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg></div>
